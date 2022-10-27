@@ -1,1 +1,4 @@
-train_data*
+data/images/
+clean_labels.csv
+noisy_labels.csv
+data/train_data.zip
