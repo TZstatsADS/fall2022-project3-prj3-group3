@@ -8,10 +8,13 @@ ICCV, 2015.
 """
 
 import tensorflow as tf
+import os
+from zipfile import ZipFile
 from keras.callbacks import EarlyStopping
 from keras.layers import Dense, Conv2D,  MaxPool2D, Flatten, GlobalAveragePooling2D,  BatchNormalization, Layer, Add
 from keras.models import Sequential
 from keras.models import Model
+
 
 
 class ResnetBlock(Model):
@@ -23,7 +26,7 @@ class ResnetBlock(Model):
         """
         channels: same as number of convolution kernels
         """
-        super().__init__()
+        super(ResnetBlock, self).__init__()
 
         self.__channels = channels
         self.__down_sample = down_sample
@@ -100,3 +103,26 @@ class ResNet18(Model):
         out = self.flat(out)
         out = self.fc(out)
         return out
+
+def load_resnet(classes:int = 10, shape:tuple = None) -> Model:
+    """
+    Load ResNet-18 model.
+    """
+    if not os.path.exists("../data/resnet"):
+        os.mkdir("../data/resnet")
+
+        # loading the temp.zip and creating a zip object
+        with ZipFile("../data/resnet18.zip", 'r') as zip_object:
+
+            # Extracting all the members of the zip 
+            # into a specific location.
+            zip_object.extractall(path="../data/resnet")
+
+    if shape is None:
+        shape = (224, 224, 3)
+
+    model = ResNet18(classes)
+    model.build(input_shape=(None, *shape))
+    model.load_weights("../data/resnet/resnet18")
+
+    return model
