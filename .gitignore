@@ -8,3 +8,4 @@ data/resnet/resnet18.index
 .gitignore
 data/resnet/resnet18.data-00000-of-00001
 lib/__pycache__/resnet.cpython-39.pyc
+.vscode/settings.json
