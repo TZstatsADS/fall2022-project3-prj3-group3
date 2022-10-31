@@ -28,26 +28,26 @@ class ResnetBlock(Model):
         """
         super(ResnetBlock, self).__init__()
 
-        self.__channels = channels
-        self.__down_sample = down_sample
-        self.__strides = [2, 1] if down_sample else [1, 1]
+        self.channels = channels
+        self.down_sample = down_sample
+        self.strides = [2, 1] if down_sample else [1, 1]
 
         KERNEL_SIZE = (3, 3)
         # use He initialization, instead of Xavier (a.k.a 'glorot_uniform' in Keras), as suggested in [2]
         INIT_SCHEME = "he_normal"
 
-        self.conv_1 = Conv2D(self.__channels, strides=self.__strides[0],
+        self.conv_1 = Conv2D(self.channels, strides=self.strides[0],
                              kernel_size=KERNEL_SIZE, padding="same", kernel_initializer=INIT_SCHEME)
         self.bn_1 = BatchNormalization()
-        self.conv_2 = Conv2D(self.__channels, strides=self.__strides[1],
+        self.conv_2 = Conv2D(self.channels, strides=self.strides[1],
                              kernel_size=KERNEL_SIZE, padding="same", kernel_initializer=INIT_SCHEME)
         self.bn_2 = BatchNormalization()
         self.merge = Add()
 
-        if self.__down_sample:
+        if self.down_sample:
             # perform down sampling using stride of 2, according to [1].
             self.res_conv = Conv2D(
-                self.__channels, strides=2, kernel_size=(1, 1), kernel_initializer=INIT_SCHEME, padding="same")
+                self.channels, strides=2, kernel_size=(1, 1), kernel_initializer=INIT_SCHEME, padding="same")
             self.res_bn = BatchNormalization()
 
     def call(self, inputs):
@@ -59,7 +59,7 @@ class ResnetBlock(Model):
         x = self.conv_2(x)
         x = self.bn_2(x)
 
-        if self.__down_sample:
+        if self.down_sample:
             res = self.res_conv(res)
             res = self.res_bn(res)
 
