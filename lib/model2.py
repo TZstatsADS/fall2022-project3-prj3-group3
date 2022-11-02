@@ -62,29 +62,21 @@ class LabelCleaner(tf.keras.Model):
         return x
 
 
-class ImageClassifier(tf.keras.Model):
+def ImageClassifier(cnn: tf.keras.Model) -> tf.keras.Model:
     """
-    This model is used to classify the images. 
-    It uses the output from the LabelCleaner model
-    as input.
+    Build a new model that takes images as input and outputs class probabilities.
 
     Parameters:
     -----------
-    CNN: tf.keras.Model
-        The base CNN model used to extract features from the
-        images.
+
+    `cnn: tf.keras.Model` 
+        The base CNN model to use.
+
+    `return`
+        The new model.
     """
-
-    def __init__(self, cnn: tf.keras.Model):
-        super(ImageClassifier, self).__init__()
-
-        self.cnn = cnn
-        self.fc_1 = tf.keras.layers.Dense(units = 512),
-        self.fc_2 = tf.keras.layers.Dense(units = 10, activation = "sigmoid")
-
-    def call(self, inputs):
-        x = self.cnn(inputs)
-        x = self.fc_1(x)
-        x = self.fc_2(x)
-
-        return x
+    return tf.keras.Sequential([
+        cnn,
+        tf.keras.layers.Dense(units = 64),
+        tf.keras.layers.Dense(units = 10, activation = "sigmoid")
+    ])
