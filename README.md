@@ -5,13 +5,13 @@
 
 Term: Fall 2022
 
-+ Team ##
++ Team 3
 + Team members
-	+ team member 1
-	+ team member 2
-	+ team member 3
-	+ team member 4
-	+ team member 5
+	+ Ying Gao 
+	+ Alix Leon
+	+ Shreya Sinha
+	+ Weijia Wang
+	+ Tomasz Wislicki
 
 + Project summary: In this project, we created ...
 	
