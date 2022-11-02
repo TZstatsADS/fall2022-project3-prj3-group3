@@ -80,7 +80,7 @@ class ImageClassifier(tf.keras.Model):
 
         self.cnn = cnn
         self.fc_1 = tf.keras.layers.Dense(units = 512),
-        self.fc_1 = tf.keras.layers.Dense(units = 10, activation = "sigmoid")
+        self.fc_2 = tf.keras.layers.Dense(units = 10, activation = "sigmoid")
 
     def call(self, inputs):
         x = self.cnn(inputs)
