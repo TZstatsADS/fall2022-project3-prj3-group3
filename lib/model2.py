@@ -1,4 +1,4 @@
-from tensorflow import tf
+import tensorflow as tf
 
 class LabelCleaner(tf.keras.Model):
     """
