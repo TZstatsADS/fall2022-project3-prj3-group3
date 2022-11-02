@@ -125,4 +125,10 @@ def load_resnet(classes:int = 10, shape:tuple = None) -> Model:
     model.build(input_shape=(None, *shape))
     model.load_weights("../data/resnet/resnet18")
 
+    model.compile(
+        loss = tf.keras.losses.CategoricalCrossentropy(),
+        optimizer = tf.keras.optimizers.Adam(learning_rate = 0.001),
+        metrics = ["accuracy"]
+    )
+
     return model
