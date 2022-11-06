@@ -1,3 +1,3 @@
 ### Doc folder
 
-The doc directory contains the report or presentation files. It can have subfolders.  
+The main.ipynb file is the file where the final model 1 and model 2 lie as well as the evaluations. The main_pdf.pdf is the whole process of our models. 
