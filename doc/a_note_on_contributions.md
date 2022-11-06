@@ -11,9 +11,9 @@ Below is an example. If no contribution statement is provided, we will insert a 
 ---
 Sample project README statement.
 
-Project xxx
+Project : Weekly Supervised Learning
 
-Team members: Avi Bond, Comma Deed, En Funn, Gem Hon
+Team members: 
 
 Summary: In this project, we developed a new method and improved the classification accuracy for images of cats and dogs to 99.9%
 
