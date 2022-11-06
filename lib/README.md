@@ -7,5 +7,7 @@ lossfunction.py is the custom loss function for label cleaning method. We define
 where $y_i$ is the clean label and $y_hat_i$ is the predicted clean label. 
 
 <br>
-
+model2.py : It is defining the architecture of image classifier and the label cleaning model. 
+<br>
+resnet.py : We have defined resnet-18.py architecture in the resnet.py file . Tensorflow dosent have a predefined resnet-18 model. Hence we defined its architecture to use it. Tensorflow only has a resnet-50 , however we didnt use it as it has many more parameters than resnet-50 which would make it more computationally expensive.
 
