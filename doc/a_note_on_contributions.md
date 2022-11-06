@@ -13,8 +13,7 @@ Sample project README statement.
 
 Project : Weekly Supervised Learning
 
-Team members: 
+Team members: Ying Gao,Alix Leon,Shreya Sinha, Weijia Wang,Tomasz Wislicki
 
-Summary: In this project, we developed a new method and improved the classification accuracy for images of cats and dogs to 99.9%
 
-[Contribution Statement] AB, CD, EF and GH designed the study. AB and CD developed baseline classification model for evaluation. EF and GH explored feature engineering for improving the baseline model. AB, EF and GH discussed and designed the model evaluation protocol. CD carried out the computation for model evaluation. All team members contributed to the GitHub repository and prepared the presentation. All team members approve our work presented in our GitHub repository including this contribution statement.
+[Contribution Statement] : Every member contributed equally in finding the best model for Model 1 and Model 2. We tried various models like ALexnet,efficientnet,VGG, Resnet,CNN and ended up selecting Resnet-18 as the base model for Model1. For Model2 we created a label cleaner to clean the labels and then used a Image Classifier to classify images correctly. 
